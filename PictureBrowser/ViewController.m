@@ -24,6 +24,7 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+#pragma mark ========== UICollectionViewDataSource ==========
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.picsArray.count;
 }
@@ -43,6 +44,7 @@
     return cell;
 }
 
+#pragma mark ========== UICollectionViewDataSource ==========
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     CGRect rect = CGRectFromString(self.imgViewFrameArray[indexPath.item]);
     UIImageView *tempImgView = [[UIImageView alloc] initWithFrame:rect];
