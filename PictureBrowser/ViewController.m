@@ -46,33 +46,33 @@
 
 #pragma mark ========== UICollectionViewDataSource ==========
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGRect rect = CGRectFromString(self.imgViewFrameArray[indexPath.item]);
-    UIImageView *tempImgView = [[UIImageView alloc] initWithFrame:rect];
-//    NSLog(@"%@", self.imgViewFrameArray);
-//    NSLog(@"%@", NSStringFromCGRect(imgView.frame));
-//    NSLog(@"%@", NSStringFromCGRect(rect));
+    //获取转化后rect
+    CGRect selectRect = CGRectFromString(self.imgViewFrameArray[indexPath.item]);
+    //新建tempImgView
+    UIImageView *tempImgView = [[UIImageView alloc] initWithFrame:selectRect];
     [self.view addSubview:tempImgView];
     tempImgView.image = [UIImage imageNamed:self.picsArray[indexPath.item]];
     tempImgView.contentMode = UIViewContentModeScaleAspectFit;
     CGRect targetRect = CGRectMake(0, kScreenHeight/2 - kScreenWidth/2, kScreenWidth, kScreenWidth);
+    //执行动画
     [UIView animateWithDuration:0.3 animations:^{
         tempImgView.frame = targetRect;
     } completion:^(BOOL finished) {
         [tempImgView removeFromSuperview];
         
-        PictureBrowser *pictureBrowser = [[PictureBrowser alloc] initWithFrame:CGRectMake(0, [UIApplication sharedApplication].statusBarFrame.size.height + 44, kScreenWidth, kScreenHeight - ([UIApplication sharedApplication].statusBarFrame.size.height + 44)) picsArray:self.picsArray indexPath:indexPath];
-        [self.view addSubview:pictureBrowser];
+        PictureBrowser *pictureBrowser = [[PictureBrowser alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) picsArray:self.picsArray indexPath:indexPath];
+        [[UIApplication sharedApplication].keyWindow addSubview:pictureBrowser];
         
         __weak typeof(PictureBrowser *)weakBrowser = pictureBrowser;
         __weak typeof(self)weakSelf = self;
-        pictureBrowser.tapAction = ^(UIScrollView * _Nonnull scrollView, NSMutableArray * _Nonnull imageViewFrameArray) {
+        pictureBrowser.tapAction = ^(UIScrollView * _Nonnull scrollView, PictureZoomView * _Nonnull zoomView, UIImageView * _Nonnull enlargeImage) {            
             [weakBrowser removeFromSuperview];
             NSInteger page = (NSInteger)scrollView.contentOffset.x/kScreenWidth;
-            CGRect rect = [scrollView convertRect:CGRectFromString(imageViewFrameArray[page]) toView:self.view];
+            CGRect rect = [zoomView convertRect:enlargeImage.frame toView:self.view];
             UIImageView *imgView = [[UIImageView alloc] initWithFrame:rect];
             [weakSelf.view addSubview:imgView];
             imgView.image = [UIImage imageNamed:weakSelf.picsArray[page]];
-            CGRect tempRect = CGRectFromString(weakSelf.imgViewFrameArray[page]);
+            CGRect tempRect = CGRectFromString(self.imgViewFrameArray[page]);
             [UIView animateWithDuration:0.3 animations:^{
                 imgView.frame = tempRect;
             } completion:^(BOOL finished) {
@@ -80,10 +80,9 @@
             }];
         };
     }];
-    
-    
 }
 
+#pragma mark ========== 懒加载 ==========
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74C6287D232535B1009F1BBB /* PictureZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C6287C232535B1009F1BBB /* PictureZoomView.m */; };
 		74ECBE0E22A804CF00B9EB7D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74ECBE0D22A804CF00B9EB7D /* AppDelegate.m */; };
 		74ECBE1122A804CF00B9EB7D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74ECBE1022A804CF00B9EB7D /* ViewController.m */; };
 		74ECBE1422A804CF00B9EB7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74ECBE1222A804CF00B9EB7D /* Main.storyboard */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74C6287B232535B1009F1BBB /* PictureZoomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureZoomView.h; sourceTree = "<group>"; };
+		74C6287C232535B1009F1BBB /* PictureZoomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureZoomView.m; sourceTree = "<group>"; };
 		74ECBE0922A804CF00B9EB7D /* PictureBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PictureBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74ECBE0C22A804CF00B9EB7D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		74ECBE0D22A804CF00B9EB7D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -114,18 +117,20 @@
 				74ECBE4022A806B400B9EB7D /* logo_1.jpg */,
 				74ECBE3F22A806B400B9EB7D /* logo_2.jpg */,
 				74ECBE4122A806B400B9EB7D /* logo_3.jpg */,
-				74ECBE0C22A804CF00B9EB7D /* AppDelegate.h */,
-				74ECBE0D22A804CF00B9EB7D /* AppDelegate.m */,
+				74ECBE3E22A8062D00B9EB7D /* Macro.h */,
 				74ECBE0F22A804CF00B9EB7D /* ViewController.h */,
 				74ECBE1022A804CF00B9EB7D /* ViewController.m */,
+				74ECBE4522A80A2000B9EB7D /* PictureBrowser.h */,
+				74ECBE4622A80A2000B9EB7D /* PictureBrowser.m */,
+				74C6287B232535B1009F1BBB /* PictureZoomView.h */,
+				74C6287C232535B1009F1BBB /* PictureZoomView.m */,
+				74ECBE0C22A804CF00B9EB7D /* AppDelegate.h */,
+				74ECBE0D22A804CF00B9EB7D /* AppDelegate.m */,
 				74ECBE1222A804CF00B9EB7D /* Main.storyboard */,
 				74ECBE1522A804D100B9EB7D /* Assets.xcassets */,
 				74ECBE1722A804D100B9EB7D /* LaunchScreen.storyboard */,
 				74ECBE1A22A804D100B9EB7D /* Info.plist */,
 				74ECBE1B22A804D100B9EB7D /* main.m */,
-				74ECBE3E22A8062D00B9EB7D /* Macro.h */,
-				74ECBE4522A80A2000B9EB7D /* PictureBrowser.h */,
-				74ECBE4622A80A2000B9EB7D /* PictureBrowser.m */,
 			);
 			path = PictureBrowser;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74C6287D232535B1009F1BBB /* PictureZoomView.m in Sources */,
 				74ECBE1122A804CF00B9EB7D /* ViewController.m in Sources */,
 				74ECBE1C22A804D100B9EB7D /* main.m in Sources */,
 				74ECBE0E22A804CF00B9EB7D /* AppDelegate.m in Sources */,
@@ -456,7 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UKN88ZK5LF;
+				DEVELOPMENT_TEAM = 5MTCW89VZ6;
 				INFOPLIST_FILE = PictureBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -474,7 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UKN88ZK5LF;
+				DEVELOPMENT_TEAM = 5MTCW89VZ6;
 				INFOPLIST_FILE = PictureBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
